@@ -69,9 +69,9 @@ namespace _200805X_SITConnect
         protected void LoginMe(object sender, EventArgs e)
         {
             
-            string pwd = tb_pass.Text.ToString().Trim();
-            string email = tb_email.Text.ToString().Trim();
-
+            string pwd = HttpUtility.HtmlEncode(tb_pass.Text.ToString().Trim());
+            string email = HttpUtility.HtmlEncode(tb_email.Text.ToString().Trim());
+            
             var failureStatus = getFailureStatus(email);
             var failureCount = getFailureCount(email);
             System.Diagnostics.Debug.WriteLine("Login Page - "+email +" User logging in...");
